@@ -202,7 +202,7 @@ client.on(Events.InteractionCreate, async (interaction) =>{
       auth = e[0]
     }
     if(command.authLevel > 0 && interaction.commandName != 'configurar_canal_notificaciones'){
-      if(!auth!.channel_id){
+      if(!auth || !auth!.channel_id){
         return interaction.reply({embeds:[AuthEmbeds.noChannel()]})
       }
     }

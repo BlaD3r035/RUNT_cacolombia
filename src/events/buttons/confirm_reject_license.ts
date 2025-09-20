@@ -48,7 +48,7 @@ export default {
                   if(channel_nots){
                     try{
                      await channel_nots.send({
-                      content: `<@${r[0]!.discord_id}>`, // menciona al agente
+                      content: `<@${r[0]!.discord_id}>`, 
                       embeds: [
                         new EmbedBuilder()
                           .setTitle("❌ Solicitud de licencia rechazada")
