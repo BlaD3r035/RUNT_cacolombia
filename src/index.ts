@@ -240,6 +240,7 @@ client.on(Events.InteractionCreate, async (interaction) =>{
 
     try{
         await interaction.deferReply()
+        console.log(` executing the command ${interaction.commandName} in ${interaction.guild?.name} by ${interaction.user.username}.`)
          await command.execute(interaction)
      }catch(error){
        console.log(`Error executing the command ${interaction.commandName} in ${interaction.guild?.name} by ${interaction.user.username}. Error:` + error)
