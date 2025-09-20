@@ -1,0 +1,1 @@
+{"version":3,"file":"ready.js","sourceRoot":"","sources":["../../../src/events/indep/ready.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,MAAM,EAAC,MAAM,YAAY,CAAA;AAEjC,eAAgB;IACZ,IAAI,EAAE,MAAM,CAAC,WAAW;IACxB,IAAI,EAAE,IAAI;IACV,KAAK,CAAC,OAAO,CAAC,MAAY;QACtB,OAAO,CAAC,GAAG,CAAC,cAAc,CAAC,CAAA;IAE/B,CAAC;CACJ,CAAA"}
