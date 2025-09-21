@@ -1,7 +1,7 @@
 import licenses_requests_models from "../../models/licenses_requests_models.js";
 import RuntAuthModels from "../../models/Runt_auth_models.js";
 import ErrorEmbeds from "../../util/embeds/error_embeds.js";
-import {GuildMemberRoleManager, EmbedBuilder} from 'discord.js'
+import {GuildMemberRoleManager, EmbedBuilder, WebhookClient} from 'discord.js'
 import UsersModels from "../../models/users_models.js";
 export default {
   name: "confirm_reject",
@@ -72,6 +72,20 @@ export default {
       
                     }
                   }
+        if (process.env.DISCORD_PRINCIPAL_GUILD_WEBHOOK) {
+                const webhookClient = new WebhookClient({ url: process.env.DISCORD_PRINCIPAL_GUILD_WEBHOOK });
+                const publicEmbed = new EmbedBuilder()
+                  .setTitle("📄 Estado de solicitud actualizado")
+                  .setDescription(`Tu solicitud de licencia ha sido actualizada.\nPuedes consultar su estado en la página oficial del RUNT.`)
+                  .setColor("Blue")
+                  .setFooter({
+                            text: 'RUNT CA COLOMBIA ERLC',
+                            iconURL: 'https://media.discordapp.net/attachments/1047946669079134249/1176943871595397172/Nuevo_Logo.png?ex=68c70165&is=68c5afe5&hm=292795090e996f2b079d274ac88d83240c9536ee929f6b0ee124cc074aaceadf&=&format=webp&quality=lossless&width=380&height=380',
+                          })
+                  .setTimestamp();
+                const userinfo = await UsersModels.getUserById(req[0]!.user_id)
+                await webhookClient.send({content:`<@${userinfo.discord_id}>`, embeds: [publicEmbed] });
+              }
       await interaction.update({
         embeds: [{ title: "❌ Solicitud rechazada", color: 0xff0000 }],
         components: [],
