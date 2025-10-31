@@ -1,6 +1,4 @@
 import {Events} from 'discord.js'
-import { once } from 'events'
-
 export default {
     name:Events.MessageCreate,
     once:false,

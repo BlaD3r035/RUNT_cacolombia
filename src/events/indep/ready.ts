@@ -5,7 +5,7 @@ export default  {
     once: true,
     async execute(client : any){
         
-        client.user.setActivity('RUNT CA COLOMBIA ERLC. Try .info',{type: ActivityType.Watching})
+        client.user.setActivity('RUNT CA COLOMBIA ERLC.',{type: ActivityType.Watching})
       
        
     }
